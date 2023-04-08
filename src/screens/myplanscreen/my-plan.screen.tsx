@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View, FlatList, Pressable } from "react-native";
 
-import PlanCard from "../../components/plan-card/plan-card.component";
+import PlanCard from "../../components/plan-card";
 
-import mock from "../../../../data/mock.json";
+import mock from "../../../data/mock.json";
 
 const MyPlanScreen = ({ navigation }) => {
   return (

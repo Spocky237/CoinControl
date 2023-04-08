@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import MyPlanScreen from "../screens/myplanscreen/my-plan.screen";
@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 const MyPlanNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Mes Plans" component={MyPlanScreen} />
+      <Stack.Screen name="MyPlans" component={MyPlanScreen} />
       <Stack.Screen
         options={{ headerShown: false }}
         name="Detail"

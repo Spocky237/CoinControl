@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     margin: 5,
   },
-  topContainer: {
+  headerContainer: {
     backgroundColor: "#3e64f0",
     width: 340,
     height: 100,
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     padding: 10,
   },
-  bottomContainer: {
+  footerContainer: {
     backgroundColor: "white",
     width: 340,
     height: 100,

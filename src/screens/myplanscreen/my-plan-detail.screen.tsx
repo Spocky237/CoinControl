@@ -9,6 +9,7 @@ import {
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { ProgressBar } from "react-native-paper";
 
+import { TransactionHistory } from "../../components/transactionhistory";
 
 interface detail {
   argent_depense: number;
@@ -17,6 +18,7 @@ interface detail {
   create_at: string;
   id: number;
   plan_name: string;
+  expired_at: string;
   transaction: [
     {
       id: number;
@@ -26,11 +28,6 @@ interface detail {
       date: string;
     }
   ];
-}
-interface transaction {
-  id: number;
-  type: string;
-  prix: number;
 }
 
 const MyPlanDetailScreen = ({ route, navigation }) => {
@@ -48,6 +45,7 @@ const MyPlanDetailScreen = ({ route, navigation }) => {
           paddingTop: 30,
         }}
       >
+        {/* Blue Header */}
         <Ionicons
           onPress={() => navigation.goBack()}
           style={{ paddingLeft: 20, paddingTop: 20 }}
@@ -73,10 +71,22 @@ const MyPlanDetailScreen = ({ route, navigation }) => {
           </Text>
           <Text style={{ color: "#a1b1d6" }}>{planDetail.categorie}</Text>
         </View>
-        <Text style={{ color: "#a1b1d6" }}>
-          {" "}
-          Crée le {planDetail.create_at}
-        </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingTop: 10,
+          }}
+        >
+          <Text style={{ color: "#a1b1d6" }}>
+            Crée le {planDetail.create_at}
+          </Text>
+          <Text style={{ color: "#a1b1d6" }}>
+            expire le {planDetail.expired_at}
+          </Text>
+        </View>
+
+        {/* white Header */}
         <View
           style={{
             marginTop: 20,
@@ -128,6 +138,8 @@ const MyPlanDetailScreen = ({ route, navigation }) => {
           </View>
         </View>
       </View>
+
+      {/* history */}
       <View
         style={{
           backgroundColor: "white",
@@ -142,46 +154,10 @@ const MyPlanDetailScreen = ({ route, navigation }) => {
         <Text style={{ paddingBottom: 10, fontSize: 20, fontWeight: "600" }}>
           Historique
         </Text>
-
         <FlatList
           data={planDetail.transaction}
           renderItem={({ item }) => {
-            return (
-              <View
-                style={{
-                  flexDirection: "row",
-                  paddingTop: 15,
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <AntDesign
-                    style={{ paddingRight: 20 }}
-                    name={item.type === "deposit" ? "download" : "upload"}
-                    size={22}
-                    color={item.type === "deposit" ? "green" : "red"}
-                  />
-                  <View>
-                    <Text style={{ color: "grey" }}>{item.date}</Text>
-                    <Text style={{ fontWeight: "bold" }}>
-                      {item.reason.toUpperCase()}
-                    </Text>
-                  </View>
-                </View>
-                <Text
-                  style={{
-                    color: item.type === "deposit" ? "green" : "red",
-                    fontWeight: "700",
-                    fontSize: 22,
-                  }}
-                >
-                  {item.type === "deposit"
-                    ? `$${item.prix}`
-                    : ` -$${item.prix}`}
-                </Text>
-              </View>
-            );
+            return <TransactionHistory transaction={item} />;
           }}
         />
       </View>

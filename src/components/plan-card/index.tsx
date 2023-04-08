@@ -2,17 +2,20 @@ import React from "react";
 import { Text, ScrollView, View, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { ProgressBar } from "react-native-paper";
-import { styles } from "./plan-card.component.styles";
+import { styles } from "./styles";
 
-const PlanCard = ({ plan  }) => {
+const PlanCard = ({ plan }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.topContainer}>
+      {/* Header */}
+      <View style={styles.headerContainer}>
         <Text style={{ color: "#a1b1d6" }}>{plan.categorie}</Text>
         <Text style={styles.planTitle}>{plan.plan_name}</Text>
         <Text style={{ color: "#a1b1d6" }}>{plan.create_at}</Text>
       </View>
-      <View style={styles.bottomContainer}>
+
+      {/* footer */}
+      <View style={styles.footerContainer}>
         <View
           style={{
             flexDirection: "row",

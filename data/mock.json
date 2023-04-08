@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "categorie": "#loisirs",
+        "plan_name": "Cinema",
+        "argent_prevu": 50,
+        "argent_depense": 32,
+        "create_at" : "24 dec 2022",
+        "expired_at" : "24 jan 2022",
+        "transaction" : 
+        [{
+            "id": 1,
+            "reason" : "enter",
+            "type" : "spending",
+            "prix" : "20",
+            "date" : "24 dec,2022 - 09:30 "
+        }]
+    },
+    {
+        "id": 2,
+        "categorie": "#deplacement",
+        "plan_name": "Taxi",
+        "argent_prevu": 200,
+        "argent_depense": 80,
+        "create_at" : "24 dec 2022",
+        "expired_at" : "24 jan 2022",
+        "transaction": [{
+            
+                "id": 2,
+                "reason" : "travail",
+                "type" : "deposit",
+                "prix": "50",
+                "date" : "24 dec,2022 - 09:30 "
+            }]
+        
+    },
+    {
+        "id": 3,
+        "categorie": "#Nutrition",
+        "plan_name": "Nutrition Pour Le Mois",
+        "argent_prevu": 550,
+        "argent_depense": 320,
+        "create_at" : "24 dec 2022",
+        "expired_at" : "24 jan 2022",
+        "transaction": [{
+            "id": 2,
+            "reason" : "achat du Vaccination",
+            "type" : "achat du mais",
+            "prix" : "80",
+            "date" : "24 dec,2022 - 09:30 "
+            
+        }]
+    },
+    {
+        "id": 4,
+        "categorie": "#Vaccination",
+        "plan_name": "Vaccination Du Chien",
+        "argent_prevu": 20,
+        "argent_depense": 17,
+        "create_at" : "24 dec 2022",
+        "expired_at" : "24 jan 2022",
+        "transaction":[ {
+            "id": 1,
+            "reason" : "achat du Vaccination",
+            "type" : "spending",
+            "prix" : "80",
+            "date" : "24 dec,2022 - 09:30 "
+        },
+        {
+            "id": 2,
+            "reason" : "achat du Vaccination",
+            "type" : "spending",
+            "prix" : "80",
+            "date" : "24 dec,2022 - 09:30 "
+        },
+        {
+            "id": 3,
+            "reason" : "achat du Vaccination",
+            "type" : "spending",
+            "prix" : "80",
+            "date" : "24 dec,2022 - 09:30 "
+        },{
+            "id": 4,
+            "reason" : "achat du Vaccination",
+            "type" : "spending",
+            "prix" : "80",
+            "date" : "24 dec,2022 - 09:30 "
+        }]
+    }
+]
