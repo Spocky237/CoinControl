@@ -7,7 +7,15 @@ import {
   View,
   useWindowDimensions,
   StatusBar,
+  StyleSheet,
 } from "react-native";
+
+import {
+  moderateScale,
+  horizontalScale,
+  verticalScale,
+} from "../../utils/Metrics";
+
 import OverviewCard from "../../components/overview";
 import { FitnessHomePlanCard } from "../../components/fitnesshome-plan-card";
 import { FitnessHomeTransaction } from "../../components/fitnesshome-transaction";
@@ -19,28 +27,15 @@ const FitnessHomeScreen = ({ navigation }) => {
   const { width } = useWindowDimensions();
   const status = StatusBar.currentHeight;
   return (
-    <ScrollView
-      showsHorizontalScrollIndicator={false}
-      style={{
-        paddingHorizontal: 10,
-        backgroundColor: "#ccd1de",
-      }}
-    >
+    <ScrollView showsHorizontalScrollIndicator={false} style={styles.container}>
+      {/*  Overview */}
       <OverviewCard navigation={navigation} />
 
       {/* My Plan */}
-
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop: 20,
-          marginBottom: 10,
-        }}
-      >
-        <Text style={{ fontSize: 17 }}>Mes Plans</Text>
+      <View style={styles.planList}>
+        <Text style={styles.listTitle}>Mes Plans</Text>
         <Pressable onPress={() => navigation.navigate("MyPlans")}>
-          <Text>Voir Tous</Text>
+          <Text> Afficher Tout</Text>
         </Pressable>
       </View>
       <FlatList
@@ -60,16 +55,10 @@ const FitnessHomeScreen = ({ navigation }) => {
       />
 
       {/*MY TRANSACTIONS*/}
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop: 17,
-        }}
-      >
-        <Text style={{ fontSize: 17 }}>Mes Transactions</Text>
+      <View style={styles.transactionList}>
+        <Text style={styles.listTitle}>Mes Transactions</Text>
         <Pressable>
-          <Text>Voir Tous</Text>
+          <Text>Afficher Tout</Text>
         </Pressable>
       </View>
       <FlatList
@@ -78,8 +67,28 @@ const FitnessHomeScreen = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
       />
 
-      <View style={{ margin: 20 }} />
+      <View style={{ margin: moderateScale(20) }} />
     </ScrollView>
   );
 };
 export default FitnessHomeScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: horizontalScale(5),
+    backgroundColor: "#ccd1de",
+  },
+  planList: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: verticalScale(28),
+    marginBottom: verticalScale(10),
+  },
+  listTitle: { fontSize: moderateScale(17) },
+  transactionList: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: verticalScale(17),
+  },
+});

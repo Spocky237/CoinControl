@@ -3,8 +3,9 @@ import { View, Text, Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { styles } from "./styles";
-import { Income } from "./income";
-import { Spending } from "./spending";
+import { IncomeBox } from "./IncomeBox";
+import { SpendingBox } from "./SpendingBox";
+import { moderateScale } from "../../utils/Metrics";
 
 const OverviewCard = ({ navigation }) => {
   return (
@@ -17,19 +18,19 @@ const OverviewCard = ({ navigation }) => {
         </Text>
 
         {/* Deposit and spending Button*/}
-        <View style={styles.depositAndSpanding}>
+        <View style={styles.depositAndSpending}>
           <Pressable
             onPress={() => navigation.navigate("Deposit")}
             style={styles.depositButton}
           >
-            <AntDesign name="download" size={20} color="black" />
+            <AntDesign name="download" size={moderateScale(20)} color="black" />
             <Text style={styles.depositAndSpendingButtonText}>Depot</Text>
           </Pressable>
           <Pressable
             style={styles.spendingButton}
             onPress={() => navigation.navigate("Spending")}
           >
-            <AntDesign name="upload" size={20} color="black" />
+            <AntDesign name="upload" size={moderateScale(20)} color="black" />
             <Text style={styles.depositAndSpendingButtonText}>Dons</Text>
           </Pressable>
         </View>
@@ -38,7 +39,7 @@ const OverviewCard = ({ navigation }) => {
         <Text style={styles.budgetOverviewText}>Vue sur le Budget</Text>
         <View style={styles.budgetOverviewContainer}>
           {/*Incomes*/}
-          <Income />
+          <IncomeBox />
 
           {/*Spending*/}
           <SpendingBox />

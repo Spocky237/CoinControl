@@ -1,27 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from "../../utils/Metrics";
 
 export const FitnessHomeTransaction = ({ transaction }) => {
   const { width } = useWindowDimensions();
   return (
-    <View
-      style={{
-        backgroundColor: "white",
-        borderRadius: 30,
-        width: width - 40,
-        marginTop: 10,
-        marginHorizontal: 10,
-        height: 70,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        padding: 20,
-        alignItems: "center",
-      }}
-    >
+    <View style={styles.container}>
       <AntDesign
         name={transaction.type === "deposit" ? "download" : "upload"}
-        size={23}
+        size={moderateScale(23)}
         color="grey"
       />
       <Text
@@ -35,3 +27,20 @@ export const FitnessHomeTransaction = ({ transaction }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    alignSelf: "center",
+    backgroundColor: "white",
+    borderRadius: moderateScale(30),
+    width: "95%",
+    marginTop: verticalScale(12),
+    marginHorizontal: horizontalScale(10),
+    height: verticalScale(100),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
+    alignItems: "center",
+  },
+});
