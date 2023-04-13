@@ -41,7 +41,7 @@ const OverviewCard = ({ navigation }) => {
           <Income />
 
           {/*Spending*/}
-          <Spending />
+          <SpendingBox />
         </View>
       </View>
     </View>
