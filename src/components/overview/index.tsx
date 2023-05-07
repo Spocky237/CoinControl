@@ -16,7 +16,6 @@ const OverviewCard = ({ navigation }) => {
       ...userBudget,
       budget: userBudget.income - userBudget.spend,
     });
-    console.log(userBudget);
   }, [userBudget.income, userBudget.spend]);
 
   return (

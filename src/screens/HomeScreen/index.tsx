@@ -25,7 +25,7 @@ import transaction from "../../../data/transaction.json";
 
 const HomeScreen = ({ navigation }) => {
   const [budgetGestion, setBudgetGestion] = useState(mocks);
-  console.log("b");
+
   const { width } = useWindowDimensions();
   const status = StatusBar.currentHeight;
   return (
@@ -63,11 +63,10 @@ const HomeScreen = ({ navigation }) => {
           <Text>Afficher Tout</Text>
         </Pressable>
       </View>
-      <FlatList
-        data={transaction}
-        renderItem={({ item }) => <FitnessHomeTransaction transaction={item} />}
-        showsVerticalScrollIndicator={false}
-      />
+      {transaction &&
+        transaction
+          .slice(0, 3)
+          .map((item) => <FitnessHomeTransaction transaction={item} />)}
 
       <View style={{ margin: moderateScale(20) }} />
     </ScrollView>
