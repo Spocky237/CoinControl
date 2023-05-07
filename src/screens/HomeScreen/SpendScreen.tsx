@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Text, StyleSheet } from "react-native";
+import { View, TextInput, Text, StyleSheet, Button } from "react-native";
 
 import {
   moderateScale,
@@ -7,8 +7,9 @@ import {
   verticalScale,
 } from "../../utils/Metrics";
 
-export const DepositScreen = () => {
+export const SpendingScreen = ({ route, navigation }) => {
   const [deposit, setDeposit] = useState<number | any>("");
+  const { setUserBudget, userBudget } = route.params;
 
   const onChange = (text) => {
     if (isNaN(text) == false) {
@@ -17,7 +18,7 @@ export const DepositScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}> Montant du Depot</Text>
+      <Text style={styles.title}> Montant du Retrait</Text>
       <View style={styles.row}>
         <TextInput
           style={styles.textInput}
@@ -31,6 +32,16 @@ export const DepositScreen = () => {
           <Text style={styles.text}>$</Text>
         </View>
       </View>
+      <Button
+        title="Depot"
+        onPress={() => {
+          setUserBudget({
+            ...userBudget,
+            spend: userBudget.spend + Math.floor(deposit),
+          });
+          return navigation.goBack();
+        }}
+      />
     </View>
   );
 };

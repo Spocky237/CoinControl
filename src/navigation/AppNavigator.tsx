@@ -1,7 +1,7 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-import HomeNavigator from "./home-navigator";
-import MyPlanNavigator from "./myplan-navigator";
+import HomeNavigator from "./HomeNavigator";
+import MyPlanNavigator from "./MyPlanNavigator";
 const Tab = createMaterialBottomTabNavigator();
 export const AppNavigator = () => {
   return (

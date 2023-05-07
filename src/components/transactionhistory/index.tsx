@@ -2,35 +2,29 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
+import { styles } from "./styles";
+import { moderateScale } from "../../utils/Metrics";
+
 export const TransactionHistory = ({ transaction }) => {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        paddingTop: 15,
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
+    <View style={styles.container}>
+      <View style={styles.row}>
         <AntDesign
-          style={{ paddingRight: 20 }}
+          style={styles.antDesign}
           name={transaction.type === "deposit" ? "download" : "upload"}
-          size={22}
+          size={moderateScale(22)}
           color={transaction.type === "deposit" ? "green" : "red"}
         />
         <View>
-          <Text style={{ color: "grey" }}>{transaction.date}</Text>
-          <Text style={{ fontWeight: "bold" }}>
-            {transaction.reason.toUpperCase()}
-          </Text>
+          <Text style={styles.date}>{transaction.date}</Text>
+          <Text style={styles.text}>{transaction.reason.toUpperCase()}</Text>
         </View>
       </View>
       <Text
         style={{
           color: transaction.type === "deposit" ? "green" : "red",
           fontWeight: "700",
-          fontSize: 22,
+          fontSize: moderateScale(22),
         }}
       >
         {transaction.type === "deposit"

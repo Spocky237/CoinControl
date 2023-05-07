@@ -8,7 +8,7 @@ import {
   moderateScale,
 } from "../../utils/Metrics";
 
-export const SpendingBox = () => {
+export const SpendingBox = ({ spendingBudget }) => {
   return (
     <View style={styles.spendingContainer}>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -26,7 +26,7 @@ export const SpendingBox = () => {
         <View>
           <Text style={styles.text}>Dons</Text>
           <Text>
-            <Text style={styles.spendingText}>$ 1500</Text>
+            <Text style={styles.spendingText}>${spendingBudget}</Text>
           </Text>
         </View>
         <Feather name="arrow-up-right" size={moderateScale(24)} color="black" />

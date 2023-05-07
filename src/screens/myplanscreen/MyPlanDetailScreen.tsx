@@ -9,7 +9,7 @@ import {
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { ProgressBar } from "react-native-paper";
 
-import { TransactionHistory } from "../../components/transactionhistory";
+import { TransactionHistory } from "../../components/TransactionHistory";
 
 interface detail {
   argent_depense: number;

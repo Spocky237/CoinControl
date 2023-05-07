@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   Pressable,
@@ -16,14 +16,16 @@ import {
   verticalScale,
 } from "../../utils/Metrics";
 
-import OverviewCard from "../../components/overview";
-import { FitnessHomePlanCard } from "../../components/fitnesshome-plan-card";
-import { FitnessHomeTransaction } from "../../components/fitnesshome-transaction";
+import OverviewCard from "../../components/Overview";
+import { FitnessHomePlanCard } from "../../components/HomePlanCard";
+import { FitnessHomeTransaction } from "../../components/HomeTransactionCard";
 
 import mocks from "../../../data/mock.json";
 import transaction from "../../../data/transaction.json";
 
-const FitnessHomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
+  const [budgetGestion, setBudgetGestion] = useState(mocks);
+  console.log("b");
   const { width } = useWindowDimensions();
   const status = StatusBar.currentHeight;
   return (
@@ -39,7 +41,7 @@ const FitnessHomeScreen = ({ navigation }) => {
         </Pressable>
       </View>
       <FlatList
-        data={mocks}
+        data={budgetGestion}
         renderItem={({ item }) => (
           <Pressable
             onPress={() => {
@@ -71,7 +73,7 @@ const FitnessHomeScreen = ({ navigation }) => {
     </ScrollView>
   );
 };
-export default FitnessHomeScreen;
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {

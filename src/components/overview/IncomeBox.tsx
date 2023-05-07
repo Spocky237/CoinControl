@@ -8,7 +8,7 @@ import {
   verticalScale,
 } from "../../utils/Metrics";
 
-export const IncomeBox = () => {
+export const IncomeBox = ({ incomeBudget }) => {
   return (
     <View style={styles.depositContainer}>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -23,9 +23,7 @@ export const IncomeBox = () => {
       <View style={[styles.row, { justifyContent: "space-between" }]}>
         <View>
           <Text style={styles.text}>Revenue</Text>
-          <Text>
-            <Text style={styles.incomeText}>$ 3000</Text>
-          </Text>
+          <Text style={styles.incomeText}>${incomeBudget}</Text>
         </View>
         <Feather name="arrow-up-right" size={moderateScale(24)} color="black" />
       </View>
