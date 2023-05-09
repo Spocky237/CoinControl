@@ -2,18 +2,19 @@
     {
         "id": 1,
         "type" : "spending",
-        "prix" : "20"
-        
+        "prix" : "20",
+        "Description" : "pour lachat ps3"
     },
     {
         "id": 2,
         "type" : "deposit",
-        "prix": "50"
+        "prix": "50",
+        "Description" : "pour lachat ps3"
     },
     {
         "id": 4,
         "type" : "spending",
-        "prix" : "80"
-        
+        "prix" : "80",
+        "Description" : "pour lachat ps3"
     }
 ]

@@ -12,7 +12,7 @@ const MyPlanScreen = ({ navigation }) => {
       <FlatList
         data={plan}
         renderItem={({ item }) => (
-          <Pressable onPress={() => navigation.navigate("Detail", item)}>
+          <Pressable onPress={() => navigation.navigate("MyPlanDetail", item)}>
             <PlanCard plan={item} />
           </Pressable>
         )}

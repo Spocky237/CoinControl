@@ -2,15 +2,14 @@ import React from "react";
 import { View, Text, Pressable } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
-import MyPlanScreen from "../screens/MyplanScreen";
-import MyPlanDetailScreen from "../screens/MyplanScreen/MyPlanDetailScreen";
 import { useNavigation } from "@react-navigation/native";
 
-import MyPlanUpsertScreen from "../screens/MyplanScreen/MyPlanUpsertScreen";
-import { Navigation } from ".";
+import TransactionScreen from "../screens/TransactionScreen";
+import TransactionDetailScreen from "../screens/TransactionScreen/TransactionDetailScreen";
+import TransactionUpsertScreen from "../screens/TransactionScreen/TransactionUpsertScreen";
 
 const Stack = createNativeStackNavigator();
-const MyPlanNavigator = () => {
+const TransactionNavigator = () => {
   const Navigation = useNavigation();
   return (
     <Stack.Navigator>
@@ -18,18 +17,22 @@ const MyPlanNavigator = () => {
         options={{
           headerRight,
         }}
-        name="Plans"
-        component={MyPlanScreen}
+        name="Transactions"
+        component={TransactionScreen}
       />
       <Stack.Screen
-        options={{ headerShown: false }}
-        name="MyPlanDetail"
-        component={MyPlanDetailScreen}
+        options={{
+          title: "Detail",
+        }}
+        name="TransactionDetail"
+        component={TransactionDetailScreen}
       />
       <Stack.Screen
-        options={{ title: "Creer un nouveau plan" }}
-        name="MyPlanCreate"
-        component={MyPlanUpsertScreen}
+        options={{
+          title: "Nouvelle transaction",
+        }}
+        name="TransactionAdd"
+        component={TransactionUpsertScreen}
       />
     </Stack.Navigator>
   );
@@ -44,7 +47,7 @@ const headerRight = () => {
         justifyContent: "center",
         alignItems: "center",
       }}
-      onPress={() => navigation.navigate("MyPlanCreate")}
+      onPress={() => navigation.navigate("TransactionAdd")}
     >
       <Ionicons name="ios-create-outline" size={24} color="black" />
       <Text style={{ padding: 5 }}>Creer</Text>
@@ -52,4 +55,4 @@ const headerRight = () => {
   );
 };
 
-export default MyPlanNavigator;
+export default TransactionNavigator;
